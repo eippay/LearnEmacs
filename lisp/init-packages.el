@@ -31,12 +31,21 @@
       (package-refresh-contents)
       (message "installing %s ..." pkg)
       (package-install pkg)))
-
+  ;; 在 init-keybinds.el 中按键绑定
+  (eippay/package-installing 'f)
   (setf *keybind-list* nil)
+  
   (defun eippay/keybind (string key fn)
    (pushnew (concatenate 'string ";; " string) *keybind-list*)
    (pushnew (concatenate 'string "global-set-key (kbd " key ") " (format nil "'~a" fn)) *keybind-list*))
+  
+  (defun write-keybinds ()
+    (dolist (line *keybind-list*)
+      (f-write-text line 'utf-8 "~/.emacs.d/lisp/init-keybinds.el")))
   )
+
+
+
 ;;####################
 ;; company 用于自动补全
 ;;####################
@@ -75,12 +84,14 @@
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
 
+(global-set-key (kbd "C-h C-f") 'find-function)
+(global-set-key (kbd "C-h C-v")'find-variable)
+(global-set-key (kbd "C-h C-k") 'find-function-on-key)
 ;;####################
 ;; smartparens
 ;;####################
 ;; 自动为"("输入匹配的")"
 (eippay/package-installing 'smartparens)
-(require 'smartparens-config)
 ;; 全局使用smartparens
 (smartparens-global-mode t)
 
