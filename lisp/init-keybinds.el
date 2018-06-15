@@ -1,13 +1,18 @@
 ;; 函数生成的按键绑定
 ;;########################################
 (global-set-key (kbd "C-M-\\") 'indent-region)
+;; 禁止在dired中回车时创建新的buffer
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+;; C-x C-j 打开当前buffer对应的目录
+(require 'dired-x)
 ;; 使用swiper搜索
 (global-set-key (kbd "\C-s") 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
-(global-set-key (kbd "M-x") 'cousel-M-x)
+(global-set-key (kbd "M-x") 'counsel-M-x)
 ;; 使用swiper打开文件
-(global-set-key (kbd "C-x C-f") 'cousel-find-file)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
 ;; 使用swiper查看函数文档
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 ;; swiper查看变量说明
@@ -20,6 +25,8 @@
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 ;; 打开git同步的文件
 (global-set-key (kbd "C-x p f") 'counsel-git)
+;; hippie补全
+(global-set-key (kbd "M-/") 'hippie-expand)
 
 
 

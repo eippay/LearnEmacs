@@ -21,4 +21,21 @@
 ;; 全局使用smartparens
 ;; (smartparens-global-mode t)
 
+;;####################
+;; 使用 hippie 补全
+;;####################
+;; 添加补全搜索范围
+(setq hippie-expand-try-functions-list '(try-expand-dabbrev
+					 try-expand-dabbrev-all-buffers
+					 try-expand-dabbrev-from-kill
+					 try-complete-file-name-partially
+					 try-complete-file-name
+					 try-expand-all-abbrevs
+					 try-expand-list
+					 try-expand-line
+					 try-complete-lisp-symbol-partially
+					 try-complete-lisp-symbol))
+;; 使用 M-/ 绑定补全
+(eippay-keybind "M-/" "hippie-expand" "hippie补全")
+
 (provide 'edit-code)

@@ -46,10 +46,12 @@
       (setf *eippay-keybind-string* (concatenate 'string *eippay-keybind-string* "\n")))
     (setf *eippay-keybind-string* (concatenate 'string *eippay-keybind-string* str)))
 
+  (cl-defun append-keybind-strings (&rest rest)
+    (dolist (str rest)
+      (append-keybind-string str)))
 
 
-
-  ;; 函数eippay-keybind 合理用户添加快捷键
+  ;; 函数eippay-keybind 添加快捷键到init-keybinds
   ;; (eippay-keybind "C-M-\\\\" "indent-region" "整理代码缩进")
   (cl-defun eippay-keybind (key fn &optional (comment-string ""))
     (unless (eql comment-string "")
@@ -68,7 +70,6 @@
 
   (eippay-keybind "C-M-\\\\" "indent-region")
 )
-
 
 
 (provide 'start)

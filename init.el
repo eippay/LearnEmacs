@@ -4,8 +4,8 @@
 
 ;; 初始化源，同时载入辅助配置函数
 (require 'start)
-
-(require 'init-packages)
+;; 配置交互习惯
+(require 'interactive-custom)
 ;; 主题界面设置
 (require 'init-ui)
 ;; 模式相关设置
@@ -15,3 +15,4 @@
 ;; 快捷键设置，同时清理不使用的插件
 (require 'end)
 
+(put 'dired-find-alternate-file 'disabled nil)

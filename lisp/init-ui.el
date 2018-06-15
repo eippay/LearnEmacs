@@ -16,9 +16,12 @@
 ;; 显示行号
 (global-linum-mode t)
 ;; 启动Emacs后，自动全屏显示
-;; (setq initial-frame-alist (quote ((fullscreen . maximized))))
+(setq initial-frame-alist (quote ((fullscreen . maximized))))
 ;; 关闭启动画面
 ;; (setq inhibit-splash-screen t)
+;; 打开Emacs时，自动打开双窗格
+(split-window-right)
+;; (split-window-below)
 ;; 关闭 *scratch* 缓冲区的提示
 ;; (setq initial-scratch-message nil)
 ;;----------
