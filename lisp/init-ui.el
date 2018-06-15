@@ -1,3 +1,9 @@
+;;####################
+;; 使用 monokai-theme 主题
+;;####################
+(eippay-package-install 'monokai-theme)
+;; 加载主题
+(load-theme 'monokai t)
 
 ;; 关闭声音提示
 (setq ring-bell-function 'ignore)
@@ -38,9 +44,7 @@
 ;;(global-set-key "\C-x\ \C-r" 'recentf-open-files)
 ;; 禁止生成备份文件
 (setq make-backup-files nil)
-;; 文本中语法高亮
-(require 'org)
-(setq org-src-fontify-natively t)
+
 ;; 高亮匹配括号
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 

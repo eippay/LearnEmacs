@@ -1,11 +1,17 @@
+;; 添加lisp到环境路径中，以便require查找lisp中的文件
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+
+;; 初始化源，同时载入辅助配置函数
+(require 'start)
+
 (require 'init-packages)
+;; 主题界面设置
 (require 'init-ui)
+;; 模式相关设置
 (require 'init-mode)
-(require 'init-keybinds)
+;; 编程习惯配置
+(require 'edit-code)
+;; 快捷键设置，同时清理不使用的插件
+(require 'end)
 
-
-;; 设置 Emacs 自动添加的插件配置到 ~/.emacs.d/lisp/custom.el 
-(setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
-(load-file custom-file)
