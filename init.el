@@ -4,6 +4,8 @@
 
 ;; 初始化源，同时载入辅助配置函数
 (require 'start)
+;; 加载实用函数
+(require 'practical-function)
 ;; 配置交互习惯
 (require 'interactive-custom)
 ;; 主题界面设置

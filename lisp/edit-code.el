@@ -17,10 +17,11 @@
 ;; smartparens
 ;;####################
 ;; 自动为"("输入匹配的")"
-;; (eippay-package-install 'smartparens)
+(eippay-package-install 'smartparens)
 ;; 全局使用smartparens
-;; (smartparens-global-mode t)
-
+(smartparens-global-mode t)
+;; 禁止匹配 ' 为 ''
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
 ;;####################
 ;; 使用 hippie 补全
 ;;####################
@@ -37,5 +38,19 @@
 					 try-complete-lisp-symbol))
 ;; 使用 M-/ 绑定补全
 (eippay-keybind "M-/" "hippie-expand" "hippie补全")
+
+;; 匹配选区
+(eippay-package-install 'expand-region)
+(require 'expand-region)
+;;(global-set-key (kbd "C-=") 'er/expand-region)
+(eippay-keybind "C-=" "er/expand-region" "选区匹配")
+
+;; iedit
+(eippay-package-install 'iedit)
+;; (global-set-key (kbd "M-s e") 'iedit-mode)
+(eippay-keybind "M-s e" "iedit-mode" "多选区同时编辑")
+(eippay-keybind "C-;" "iedit-mode" "多选区同时编辑")
+
+
 
 (provide 'edit-code)

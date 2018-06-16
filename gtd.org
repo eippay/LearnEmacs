@@ -1,0 +1,13 @@
+* 工作安排
+
+** TODO [#B] 录制Emacs第六天的视频
+   DEADLINE: <2018-06-16 六 18:00> SCHEDULED: <2018-06-16 六 15:50>
+   :LOGBOOK:
+   CLOCK: [2018-06-16 六 12:45]
+   :END:
+
+** TODO [#B] Clean up our Emacs configs 
+
+** TODO [#B] 测试一下计划任务
+   SCHEDULED: <2018-06-16 六 18:00>
+
