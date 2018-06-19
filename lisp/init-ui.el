@@ -4,8 +4,7 @@
 (eippay-package-install 'monokai-theme)
 ;; 加载主题
 (load-theme 'monokai t)
-;; 选区背景颜色
-(set-face-background 'region "#5499c7")
+
 
 ;; 关闭声音提示
 (setq ring-bell-function 'ignore)
@@ -42,30 +41,6 @@
 ;;(setq evil-insert-state-cursor '("red" bar))
 ;;(setq evil-replace-state-cursor '("red" bar))
 ;;(setq evil-operator-state-cursor '("red" hollow))
-
-
-;; 显示最近打开的文件
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-items 25)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
-;; 禁止生成备份文件
-(setq make-backup-files nil)
-;; 在 [File] => [File Recent] 里保存最近打开文件
-(recentf-mode t)
-
-;; 光标在括号旁边时，高亮匹配括号
-(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
-;; 光标在括号之间时，高亮括号
-(define-advice show-paren-function (:around (fn) fix-show-paren-funciton)
-  "Highlight enclosing parens"
-  (cond ((looking-at-p "\\s(") (funcall fn))
-	(t (save-excursion
-	     (ignore-errors (backward-up-list))
-	     (funcall fn)))))
-
-;; 输入时删除选中的文本
-(delete-selection-mode t)
 
 ;; 高亮当前行
 (global-hl-line-mode t)

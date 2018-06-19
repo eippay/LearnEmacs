@@ -3,18 +3,22 @@
 
 
 ;; 初始化源，同时载入辅助配置函数
-(require 'start)
-;; 加载实用函数
-(require 'practical-function)
-;; 配置交互习惯
-(require 'interactive-custom)
+(require 'init-start)
 ;; 主题界面设置
 (require 'init-ui)
 ;; 模式相关设置
 (require 'init-mode)
-;; 编程习惯配置
-(require 'edit-code)
+;; 配置交互习惯
+(require 'init-interactive)
+;; 查找
+(require 'init-findfile)
+;; 编辑习惯
+(require 'init-edit)
+;; 选区配置
+(require 'init-visual)
+;; 待分类配置
+(require 'init-else)
 ;; 快捷键设置，同时清理不使用的插件
-(require 'end)
+(require 'init-end)
 
 (put 'dired-find-alternate-file 'disabled nil)

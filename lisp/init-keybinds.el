@@ -1,6 +1,10 @@
 ;; 函数生成的按键绑定
 ;;########################################
 (global-set-key (kbd "C-M-\\") 'indent-region)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c r") 'org-capture)
+;; 切换tab 2 <=> 4
+(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
 ;; 禁止在dired中回车时创建新的buffer
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
@@ -25,10 +29,10 @@
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 ;; 打开git同步的文件
 (global-set-key (kbd "C-c p f") 'counsel-git)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c r") 'org-capture)
-;; 切换tab 2 <=> 4
-(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+;; helm-ag 搜索文档内容
+(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+;; occur 搜索
+(global-set-key (kbd "M-s o") 'occur-dwim)
 ;; hippie补全
 (global-set-key (kbd "M-/") 'hippie-expand)
 ;; 选区匹配
@@ -61,21 +65,6 @@
 ;; C-M-\ 整理代码缩进
 (global-set-key (kbd "C-M-\\") 'indent-buffer)
 
-;; 增强occur搜索
-(defun occur-dwim ()
-  "Call 'occur' with a sane default."
-  (interactive)
-  (push (if (region-active-p)
-            (buffer-substring-no-properties
-             (region-beginning)
-             (region-end))
-          (let ((sym (thing-at-point 'symbol)))
-            (when (stringp sym)
-              (regexp-quote sym))))
-        regexp-history)
-  (call-interactively 'occur))
-
-(global-set-key (kbd "M-s o") 'occur-dwim)
 
 
 ;; 增强imenu对javascript支持
