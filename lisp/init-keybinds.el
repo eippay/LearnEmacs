@@ -5,6 +5,8 @@
 (global-set-key (kbd "C-c r") 'org-capture)
 ;; 切换tab 2 <=> 4
 (global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+;; C-x C-r 查看最近打开的文件
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
 ;; 禁止在dired中回车时创建新的buffer
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
@@ -27,20 +29,28 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 ;; swiper查看快捷键绑定函数
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
-;; 打开git同步的文件
-(global-set-key (kbd "C-c p f") 'counsel-git)
-;; helm-ag 搜索文档内容
-(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 ;; occur 搜索
 (global-set-key (kbd "M-s o") 'occur-dwim)
+;; imenu 搜索缓冲区函数
+(global-set-key (kbd "M-s i") 'counsel-imenu)
 ;; hippie补全
 (global-set-key (kbd "M-/") 'hippie-expand)
+;; ,/ 添加注释
+(define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+;; 在visual模式下添加注释
+(define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 ;; 选区匹配
 (global-set-key (kbd "C-=") 'er/expand-region)
 ;; 多选区同时编辑
 (global-set-key (kbd "M-s e") 'iedit-mode)
 ;; 多选区同时编辑
 (global-set-key (kbd "C-;") 'iedit-mode)
+;; viws	修改单词
+;; viwS'	word => 'word'
+;; viw"	word => "word"
+;; cs'"	'word' => "word"
+;; cs'(	'word' => ( word )
+;; cs')	'word' => (word)
 
 
 

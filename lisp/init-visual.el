@@ -32,6 +32,6 @@
  ";; cs'\"	'word' => \"word\""
  ";; cs'(	'word' => ( word )"
  ";; cs')	'word' => (word)"
-
+ )
 
 (provide 'init-visual)

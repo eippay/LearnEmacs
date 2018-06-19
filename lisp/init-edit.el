@@ -73,8 +73,8 @@
 ;; 添加注释
 (append-keybind-strings
  ";; ,/ 添加注释"
- "(define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)"
+ "(define-key evil-normal-state-map (kbd \",/\") 'evilnc-comment-or-uncomment-lines)"
  ";; 在visual模式下添加注释"
- "(define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)")
+ "(define-key evil-visual-state-map (kbd \",/\") 'evilnc-comment-or-uncomment-lines)")
 
 (provide 'init-edit)

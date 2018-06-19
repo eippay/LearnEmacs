@@ -42,16 +42,13 @@
 (eippay-keybind "C-h C-f" "find-function" "swiper定位函数定义")
 (eippay-keybind "C-h C-v" "find-variable" "swiper定位变量定义")
 (eippay-keybind "C-h C-k" "find-function-on-key" "swiper查看快捷键绑定函数")
-(eippay-keybind "C-c p f" "counsel-git" "打开git同步的文件")
+;; (eippay-keybind "C-c p f" "counsel-git" "打开git同步的文件")
 
 ;;####################
 ;; helm-ag 内容搜索
 ;;####################
 (eippay-package-install 'helm-ag)
-(append-keybind-strings
- ";; helm-ag 搜索文档内容"
- "(global-set-key (kbd \"C-c p s\") 'helm-do-ag-project-root)"
- )
+;; (eippay-keybind "C-c p s" "helm-do-ag-project-root" ";; helm-ag 搜索文档内容")
 
 
 
