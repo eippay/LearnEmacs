@@ -7,7 +7,10 @@
 ;; 在 [File] => [File Recent] 里保存最近打开文件
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+(append-keybind-strings
+ ";; C-x C-r 查看最近打开的文件"
+ "(global-set-key \"\\C-x\\ \\C-r\" 'recentf-open-files)"
+)
 
 ;; 禁止生成备份文件
 (setq make-backup-files nil)
@@ -40,7 +43,11 @@
 ;;####################
 (eippay-package-install 'evil-leader)
 (global-evil-leader-mode)
-(evil-leader/set-key "e" 'find-file "b" 'switch-to-buffer "k" 'kill-buffer)
+(evil-leader/set-key
+  "ff" 'find-file
+  "b" 'switch-to-buffer
+  "k" 'kill-buffer
+  )
 
 
 (provide 'init-interactive)

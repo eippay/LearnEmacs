@@ -8,6 +8,7 @@
  '(custom-safe-themes
    (quote
     ("c3d4af771cbe0501d5a865656802788a9a0ff9cf10a7df704ec8b8ef69017c68" default)))
+ '(evil-leader/leader "SPC")
  '(org-pomodoro-long-break-length 40)
  '(package-selected-packages
    (quote

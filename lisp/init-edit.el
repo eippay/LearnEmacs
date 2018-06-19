@@ -1,3 +1,14 @@
+;; 函数用于缩进选区
+(defun indent-buffer ()
+  " 缩进选区"
+  (interactive)
+  (if (region-active-p)
+      (indent-region (region-beginning) (region-end))
+    (indent-region (point-min) (point-max))))
+;; C-M-\ 整理代码缩进
+(global-set-key (kbd "C-M-\\") 'indent-buffer)
+
+
 ;;####################
 ;; hungry-delete 贪婪删除多余空白
 ;;####################
@@ -52,5 +63,18 @@
 ;; 使用 M-/ 绑定补全
 (eippay-keybind "M-/" "hippie-expand" "hippie补全")
 
+
+;;####################
+;; evil-nerd-commenter
+;;####################
+;; 方便添加注释
+(eippay-package-install 'evil-nerd-commenter)
+(evilnc-default-hotkeys)
+;; 添加注释
+(append-keybind-strings
+ ";; ,/ 添加注释"
+ "(define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)"
+ ";; 在visual模式下添加注释"
+ "(define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)")
 
 (provide 'init-edit)

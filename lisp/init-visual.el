@@ -18,6 +18,20 @@
 (eippay-keybind "M-s e" "iedit-mode" "多选区同时编辑")
 (eippay-keybind "C-;" "iedit-mode" "多选区同时编辑")
 
+;;####################
+;; evil-surround
+;;####################
+;; viw" cs'"
+(eippay-package-install 'evil-surround)
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+(append-keybind-strings
+ ";; viws	修改单词"
+ ";; viwS'	word => 'word'"
+ ";; viw\"	word => \"word\""
+ ";; cs'\"	'word' => \"word\""
+ ";; cs'(	'word' => ( word )"
+ ";; cs')	'word' => (word)"
 
 
 (provide 'init-visual)

@@ -46,6 +46,9 @@
 (global-hl-line-mode t)
 
 
+;; 显示窗格编号
+(eippay-package-install 'window-numbering)
+(window-numbering-mode 1)
 
 
 

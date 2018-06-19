@@ -27,6 +27,8 @@
 ;; 安装番茄工作坊
 (eippay-package-install 'org-pomodoro)
 (require 'org-pomodoro)
+;; 
+ '(org-pomodoro-long-break-length 40)
 
 ;;####################
 ;; web-mode
