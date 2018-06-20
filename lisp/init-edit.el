@@ -29,12 +29,23 @@
 ;; 光标在括号旁边时，高亮匹配括号
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 ;; 光标在括号之间时，高亮括号
-(define-advice show-paren-function (:around (fn) fix-show-paren-funciton)
-  "Highlight enclosing parens"
-  (cond ((looking-at-p "\\s(") (funcall fn))
+;;(define-advice show-paren-function (:around (fn) fix-show-paren-funciton)
+;;  "Highlight enclosing parens"
+;;  (cond ((looking-at-p "\\s(") (funcall fn))
+;;	(t (save-excursion
+;;	     (ignore-errors (backward-up-list))
+;;	     (funcall fn)))))
+
+;; Emacs 24.5 没有 define-advice 函数，所以用 defadvice 替换
+;; 同时 defadvice 版本可用于 evil-normal 模式中（define-advice不能）
+(defadvice show-paren-function (around fix-show-paren-function activate)
+  (cond ((looking-at-p "\\s(") ad-do-it)
 	(t (save-excursion
 	     (ignore-errors (backward-up-list))
-	     (funcall fn)))))
+	     ad-do-it)))
+  )
+
+
 ;;####################
 ;; smartparens
 ;;####################
@@ -44,6 +55,7 @@
 (smartparens-global-mode t)
 ;; 禁止匹配 ' 为 ''
 (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+(sp-local-pair 'emacs-lisp-mode "`" nil :actions nil)
 
 
 

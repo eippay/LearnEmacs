@@ -69,4 +69,12 @@
 (global-set-key (kbd "<f2>") 'open-my-init-file)
 
 
+;;####################
+;;which-key
+;;####################
+;; 快捷按键逐步提示
+(eippay-package-install 'which-key)
+(which-key-mode 1)
+
+
 (provide 'init-keybinds)
