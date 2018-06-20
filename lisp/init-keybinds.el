@@ -2,6 +2,7 @@
 ;;########################################
 (global-set-key (kbd "C-M-\\") 'indent-region)
 (global-set-key (kbd "C-c a") 'org-agenda)
+;; 记录org笔记
 (global-set-key (kbd "C-c r") 'org-capture)
 ;; 切换tab 2 <=> 4
 (global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
@@ -33,6 +34,8 @@
 (global-set-key (kbd "M-s o") 'occur-dwim)
 ;; imenu 搜索缓冲区函数
 (global-set-key (kbd "M-s i") 'counsel-imenu)
+;; 配置 C-w 前删一词
+(global-set-key (kbd "C-w") 'backward-kill-word)
 ;; hippie补全
 (global-set-key (kbd "M-/") 'hippie-expand)
 ;; ,/ 添加注释

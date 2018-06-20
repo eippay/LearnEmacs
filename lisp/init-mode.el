@@ -22,13 +22,19 @@
 
 ;; 添加org记录
 ;; r remember
-(eippay-keybind "C-c r" "org-capture")
-
+(append-keybind-strings
+ ";; 记录org笔记"
+ "(global-set-key (kbd \"C-c r\") 'org-capture)"
+)
+ 
 ;; 安装番茄工作坊
 (eippay-package-install 'org-pomodoro)
 (require 'org-pomodoro)
 ;; 
  '(org-pomodoro-long-break-length 40)
+
+
+
 
 ;;####################
 ;; web-mode
@@ -59,6 +65,9 @@
   (setq indent-tabs-mode nil))
 
 (eippay-keybind "C-c t i" "my-toggle-web-indent" "切换tab 2 <=> 4")
+
+
+
 
 ;;####################
 ;; js2-refactor

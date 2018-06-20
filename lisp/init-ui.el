@@ -46,10 +46,16 @@
 (global-hl-line-mode t)
 
 
+;; 美化状态栏
+(eippay-package-install 'powerline-evil)
+(require 'powerline-evil)
+(powerline-evil-center-color-theme)
+;;(powerline-evil-vim-theme)
+;;(powerline-evil-vim-color-theme)
 ;; 显示窗格编号
+;; 必须在 (powerline-default-theme) 之后设置才会生效
 (eippay-package-install 'window-numbering)
 (window-numbering-mode 1)
-
 
 
 (provide 'init-ui)

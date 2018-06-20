@@ -16,6 +16,15 @@
 ;; 全局开启贪婪删除空白
 (global-hungry-delete-mode)
 
+;;####################
+;; 配置 C-w 前删一词
+;;####################
+(append-keybind-strings
+";; 配置 C-w 前删一词"
+"(global-set-key (kbd \"C-w\") 'backward-kill-word)"
+)
+
+ 
 
 ;; 光标在括号旁边时，高亮匹配括号
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
@@ -44,6 +53,13 @@
 (eippay-package-install 'company)
 ;; 全局使用补全模式
 (global-company-mode t)
+;; 用 C-n C-p 替换 M-n M-p
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
 
 
 ;;####################

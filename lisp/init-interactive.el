@@ -35,19 +35,55 @@
 
 (setcdr evil-insert-state-map nil)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
+;; 需使用 customize-group 配置才生效
 (setq evil-want-C-u-scroll t)
-
+;; insert模式下，C-z => Emacs模式
+;; (global-set-key (kbd "C-z") 'evil-emacs-state)
 
 ;;####################
 ;; evil-leader
 ;;####################
 (eippay-package-install 'evil-leader)
 (global-evil-leader-mode)
+;; 设置空格为leader键
+(setq evil-leader/leader "SPC")
+;; 配置快捷键
 (evil-leader/set-key
-  "ff" 'find-file
-  "b" 'switch-to-buffer
-  "k" 'kill-buffer
+  "bk"  'kill-buffer
+  "bb"  'switch-to-buffer
+  "fr"  'recentf-open-files
+  "ff"  'find-file
+  "pf"  'counsel-git
+  "ps"  'helm-do-ag-project-root
+  "1"   'select-window-1
+  "2"   'select-window-2
+  "3"   'select-window-3
+  "4"   'select-window-4 
+  "w/"  'split-window-right
+  "w-"  'split-window-below
+  ":"   'counsel-M-x
+  "wm"  'delete-other-windows
+  "w4"  'split-window-4
   )
+
+;; 分割4个窗格
+(defun split-window-4 (&optional size)
+  (interactive)
+  (save-excursion
+   (split-window-below size)
+   (split-window-right size)
+   (other-window 2)
+   (split-window-right size)
+   (select-window-1)
+   )
+  )
+
+;;####################
+;;which-key
+;;####################
+;; 快捷按键逐步提示
+(eippay-package-install 'which-key)
+(which-key-mode 1)
 
 
 (provide 'init-interactive)

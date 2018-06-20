@@ -14,6 +14,8 @@
 (require 'init-findfile)
 ;; 编辑习惯
 (require 'init-edit)
+;; 语言环境配置
+(require 'init-code)
 ;; 选区配置
 (require 'init-visual)
 ;; 待分类配置

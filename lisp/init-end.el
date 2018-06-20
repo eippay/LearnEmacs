@@ -9,7 +9,6 @@
 (eippay-write-keybind)
 (require 'init-keybinds)
 
-
 ;; 设置 Emacs 自动添加的插件配置到 ~/.emacs.d/lisp/custom.el
 ;; 谨慎更改本段
 (setq custom-file (expand-file-name "lisp/init-custom.el" user-emacs-directory))
