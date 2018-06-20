@@ -105,4 +105,12 @@
  ";; 在visual模式下添加注释"
  "(define-key evil-visual-state-map (kbd \",/\") 'evilnc-comment-or-uncomment-lines)")
 
+;;####################
+;; emacs-eim 输入法插件
+;;####################
+;; (eippay-package-install 'emacs-eim)
+;; 在Linux下开启Tooltip功能
+;; (setq eim-use-tooltip nil)
+
+
 (provide 'init-edit)
