@@ -52,11 +52,13 @@
 ;; 自动为"("输入匹配的")"
 (eippay-package-install 'smartparens)
 ;; 全局使用smartparens
-(smartparens-global-mode t)
+;; (smartparens-global-mode t)
 ;; 禁止匹配 ' 为 ''
-(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
-(sp-local-pair 'emacs-lisp-mode "`" nil :actions nil)
+;; (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+;; (sp-local-pair 'emacs-lisp-mode "`" nil :actions nil)
 
+;; (sp-local-pair 'global-company-mode "'" nil :actions nil)
+;; (sp-local-pair 'emacs-lisp-mode "`" nil :actions nil)
 
 
 ;;####################
@@ -110,7 +112,8 @@
 ;;####################
 ;; (eippay-package-install 'emacs-eim)
 ;; 在Linux下开启Tooltip功能
-;; (setq eim-use-tooltip nil)
+(add-to-list 'load-path "~/.emacs.d/site-lisp/eim/")
+(autoload 'eim-use-package "eim" "Another emacs input method")
 
 
 (provide 'init-edit)
